@@ -4,6 +4,7 @@ from discord.ext import tasks
 import asyncio
 import os
 from keep_alive import keep_alive
+from dotenv import load_dotenv
 
 CHANNEL_ID = 1318500728691752980
 
