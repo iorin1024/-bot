@@ -30,7 +30,9 @@ async def on_ready():
 
 
 TOKEN = os.getenv("DISCORD_TOKEN")
-# Web サーバの立ち上げ
-keep_alive()
-client.run(TOKEN)
 
+keep_alive()
+try:
+    client.run(TOKEN)
+except:
+    os.system("kill")
