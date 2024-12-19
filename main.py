@@ -1,5 +1,5 @@
 import discord
-from datetime import datetime
+from datetime import time, timezone, timedelta
 from discord.ext import tasks 
 import asyncio
 import os
@@ -10,17 +10,18 @@ CHANNEL_ID = 1318500728691752980
 
 client = discord.Client(intents=discord.Intents.all())
 
-datalist = [
-'8:30',
-'20:30',
+JST = timezone(timedelta(hours=+9), "JST")
+
+times = [
+    time(hour=6, minute=30, tzinfo=JST),
+    time(hour=20, minute=30, tzinfo=JST)
 ]
 
-@tasks.loop(seconds=60)
+@tasks.loop(time=times)
 async def loop():
-    now = datetime.now().strftime('%H:%M')
-    if now in datalist :
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send('ﾊﾁｼﾞﾊｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧﾝﾝ!!!!!!!!!!!!')
+    channel = client.get_channel(CHANNEL_ID)
+    await channel.send('ﾊﾁｼﾞﾊｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧﾝﾝ!!!!!!!!!!!!')
+    await asyncio.sleep(60)
 
 @client.event
 async def on_ready():
