@@ -14,6 +14,7 @@ JST = timezone(timedelta(hours=+9), "JST")
 
 times = [
     time(hour=6, minute=30, tzinfo=JST),
+        time(hour=1, minute=5, tzinfo=JST),
     time(hour=20, minute=30, tzinfo=JST)
 ]
 
