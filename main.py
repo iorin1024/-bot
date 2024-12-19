@@ -13,7 +13,7 @@ client = discord.Client(intents=discord.Intents.all())
 JST = timezone(timedelta(hours=+9), "JST")
 
 times = [
-    time(hour=6, minute=30, tzinfo=JST),
+    time(hour=8, minute=30, tzinfo=JST),
     time(hour=20, minute=30, tzinfo=JST)
 ]
 
