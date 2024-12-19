@@ -5,7 +5,6 @@ import asyncio
 import os
 from keep_alive import keep_alive
 
-TOKEN = "MTMwNTQ4MzkzMTAzMzc5NjYyOQ.Gh8MPC.ll6KRL67dVMLBP7rciVAiaVKQ7XkZQMEIWN1C8"
 CHANNEL_ID = 1318500728691752980
 
 client = discord.Client(intents=discord.Intents.all())
