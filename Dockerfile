@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.2
 WORKDIR /discordbot
 COPY requirements.txt /discordbot/
 RUN pip install -r requirements.txt
