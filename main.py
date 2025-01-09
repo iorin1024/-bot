@@ -1,9 +1,6 @@
 import discord
-<<<<<<< HEAD
 from discord import app_commands,ui
-=======
 from datetime import time, timezone, timedelta
->>>>>>> 018e7d3f5cf29fe2453203016f0ed8e326a9d49a
 from discord.ext import tasks 
 import asyncio
 import os
@@ -34,10 +31,6 @@ async def on_ready():
     print('on ready')
     await tree.sync(guild=discord.Object(id={SERVER_ID}))
     loop.start()
-
-@tree.command(name="怪文書生成",description="ルイズ構文を使用した怪文書を簡単に作れます")
-@discord.app_commands.guilds({SERVER_ID})
-async def kaibun(interaction : discord.interaction):
 
 
 TOKEN = os.getenv("DISCORD_TOKEN")
