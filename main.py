@@ -21,7 +21,7 @@ times = [
 @tasks.loop(time=times)
 async def loop():
     channel = client.get_channel(CHANNEL_ID)
-    await channel.send('ﾊﾁｼﾞﾊｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧﾝﾝ!!!!!!!!!!!!')
+    await channel.send('ｻﾝｼﾞﾊｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧﾝﾝ!!!!!!!!!!!!')
     await asyncio.sleep(60)
 
 @client.event
