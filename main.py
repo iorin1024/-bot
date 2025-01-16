@@ -1,5 +1,4 @@
 import discord
-from discord import app_commands,ui
 from datetime import time, timezone, timedelta
 from discord.ext import tasks 
 import asyncio
@@ -7,11 +6,9 @@ import os
 from keep_alive import keep_alive
 from dotenv import load_dotenv
 
-CHANNEL_ID = os.getenv("CHANNEL_ID")
-SERVER_ID = os.getenv("SERVER_ID")
+CHANNEL_ID = 1318500728691752980
 
 client = discord.Client(intents=discord.Intents.all())
-tree = app_commands.CommandTree(client)
 
 JST = timezone(timedelta(hours=+9), "JST")
 
@@ -30,7 +27,6 @@ async def loop():
 @client.event
 async def on_ready():
     print('on ready')
-    await tree.sync(guild=discord.Object(id={SERVER_ID}))
     loop.start()
 
 
