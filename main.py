@@ -13,7 +13,7 @@ client = discord.Client(intents=discord.Intents.all())
 JST = timezone(timedelta(hours=+9), "JST")
 
 times = [
-    time(hour=16, minute=55, tzinfo=JST),
+    time(hour=16, minute=59, tzinfo=JST),
     time(hour=20, minute=30, tzinfo=JST)
 ]
 
@@ -21,7 +21,7 @@ times = [
 async def loop():
     channel = client.get_channel(CHANNEL_ID)
     await channel.send('ﾊﾁｼﾞﾊｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧﾝﾝ!!!!!!!!!!!!')
-    await channel.send(file=discord.File(./hatiji.mov))
+    await channel.send(file=discord.File(discordbot/hatiji.mov))
     await asyncio.sleep(60)
 
 @client.event
