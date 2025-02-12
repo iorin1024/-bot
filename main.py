@@ -6,7 +6,7 @@ import os
 from keep_alive import keep_alive
 from dotenv import load_dotenv
 
-CHANNEL_ID = 1318500728691752980
+CHANNEL_ID = os.getenv("CHANNEL_ID")
 
 client = discord.Client(intents=discord.Intents.all())
 
