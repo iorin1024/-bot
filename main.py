@@ -14,7 +14,7 @@ JST = timezone(timedelta(hours=+9), "JST")
 
 times = [
     time(hour=8, minute=30, tzinfo=JST),
-    time(hour=20, minute=30, tzinfo=JST)
+    time(hour=21, minute=35, tzinfo=JST)
 ]
 
 @tasks.loop(time=times)
