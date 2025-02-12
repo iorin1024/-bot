@@ -6,7 +6,7 @@ import os
 from keep_alive import keep_alive
 from dotenv import load_dotenv
 
-CHANNEL_ID = os.getenv("CHANNEL_ID")
+CHANNEL_ID = 1318500728691752980
 
 client = discord.Client(intents=discord.Intents.all())
 
@@ -14,7 +14,7 @@ JST = timezone(timedelta(hours=+9), "JST")
 
 times = [
     time(hour=8, minute=30, tzinfo=JST),
-    time(hour=21, minute=35, tzinfo=JST)
+    time(hour=22, minute=05, tzinfo=JST)
 ]
 
 @tasks.loop(time=times)
