@@ -1,6 +1,6 @@
 import discord
 from datetime import time, timezone, timedelta
-from discord.ext import tasks 
+from discord.ext import tasks, commands
 import asyncio
 import os
 from keep_alive import keep_alive
@@ -8,7 +8,11 @@ from dotenv import load_dotenv
 
 CHANNEL_ID = int(os.getenv('CHANNEL_ID'))
 
+intents = discord.Intents.all()
 client = discord.Client(intents=discord.Intents.all())
+bot = commands.Bot(intents=intents, command_prefix="!")
+tree = bot.tree
+
 
 JST = timezone(timedelta(hours=+9), "JST")
 
@@ -28,7 +32,12 @@ async def loop():
 async def on_ready():
     print('on ready')
     loop.start()
+    await tree.sync()
+    print("Synced slash commands")
 
+@tree.command(name="日本の政治を安定させる機能", description="日本の政治を安定させます！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！れ")
+async def kaibun(ctx : discord.Interaction):
+    await ctx.response.send_message(f'安定しました！')
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
