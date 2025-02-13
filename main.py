@@ -2,16 +2,14 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 import discord
+from discord import app_commands
 from datetime import time, timezone, timedelta
-from discord.ext import tasks, commands
+from discord.ext import tasks
 import asyncio
 from keep_alive import keep_alive
 
-intents = discord.Intents.all()
 client = discord.Client(intents=discord.Intents.all())
-bot = commands.Bot(intents=intents, command_prefix="!")
-tree = bot.tree
-
+tree = app_commands.CommandTree(client)
 
 JST = timezone(timedelta(hours=+9), "JST")
 
