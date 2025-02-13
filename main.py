@@ -1,12 +1,11 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 import discord
 from datetime import time, timezone, timedelta
 from discord.ext import tasks, commands
 import asyncio
-import os
 from keep_alive import keep_alive
-from dotenv import load_dotenv
-
-CHANNEL_ID = int(os.getenv('CHANNEL_ID'))
 
 intents = discord.Intents.all()
 client = discord.Client(intents=discord.Intents.all())
@@ -15,6 +14,8 @@ tree = bot.tree
 
 
 JST = timezone(timedelta(hours=+9), "JST")
+
+CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 
 times = [
     time(hour=8, minute=30, tzinfo=JST),
