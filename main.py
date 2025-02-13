@@ -33,7 +33,7 @@ async def loop():
 async def on_ready():
     print('on ready')
     loop.start()
-    await tree.sync()
+    await tree.sync(guild=discord.Object(id="1127225622104641651"))
     print("Synced slash commands")
 
 @tree.command(name="日本の政治を安定させる機能", description="日本の政治を安定させます！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！れ")
