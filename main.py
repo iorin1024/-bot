@@ -14,6 +14,7 @@ tree = app_commands.CommandTree(client)
 JST = timezone(timedelta(hours=+9), "JST")
 
 CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
+GUILD_ID = int(os.getenv("GUILD_ID"))
 
 times = [
     time(hour=8, minute=30, tzinfo=JST),
@@ -31,11 +32,11 @@ async def loop():
 async def on_ready():
     print('on ready')
     loop.start()
-    await tree.sync(guild=discord.Object(id="1127225622104641651"))
+    await tree.sync(guild=discord.Object(id=GUILD_ID))
     print("Synced slash commands")
 
 @tree.command(name="stable", description="日本の政治を安定させます！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！れ")
-@discord.app_commands.guilds("1127225622104641651")
+@discord.app_commands.guilds(GUILD_ID)
 async def kaibun(ctx : discord.Interaction):
     await ctx.response.send_message(f'安定しました！')
 
