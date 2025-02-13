@@ -31,10 +31,11 @@ async def loop():
 async def on_ready():
     print('on ready')
     loop.start()
-    await tree.sync(guild=discord.Object(id={"1127225622104641651"}))
+    await tree.sync(guild=discord.Object(id="1127225622104641651"))
     print("Synced slash commands")
 
 @tree.command(name="stable", description="日本の政治を安定させます！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！れ")
+@discord.app_commands.guilds("1127225622104641651")
 async def kaibun(ctx : discord.Interaction):
     await ctx.response.send_message(f'安定しました！')
 
