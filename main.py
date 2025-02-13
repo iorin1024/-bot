@@ -34,7 +34,7 @@ async def on_ready():
     await tree.sync(guild=discord.Object(id="1127225622104641651"))
     print("Synced slash commands")
 
-@tree.command(name="日本の政治を安定させる機能", description="日本の政治を安定させます！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！れ")
+@tree.command(name="stable", description="日本の政治を安定させます！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！れ")
 async def kaibun(ctx : discord.Interaction):
     await ctx.response.send_message(f'安定しました！')
 
