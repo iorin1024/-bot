@@ -65,6 +65,7 @@ async def kaibun(ctx : discord.Interaction,name:str,fullname:str,haircolor:str,l
                  genre:str,volumes:str,genre2:str,seasons:str,genre3:str,volumes2:str,
                  kunorchan:str,where:str,where2:str,othername1:str,othername2:str,othername3:str,othername4:str,othername5:str):
     namespace = ' '.join(list(name))
+    kunorchansspace = ' '.join(list(kunorchan))
     othername3start = othername3[0]
     await ctx.response.send_message(f"""
                                     {name}！{name}！{name}！{name}ぅぅうううわぁああああああああああああああああああああああん！！！
@@ -76,12 +77,12 @@ async def kaibun(ctx : discord.Interaction,name:str,fullname:str,haircolor:str,l
 {genre2}{seasons}決まって良かったね{name}たん！あぁあああああ！かわいい！{name}たん！かわいい！あっああぁああ！
 {genre3}{volumes2}も発売されて嬉し…いやぁああああああ！！！にゃああああああああん！！ぎゃあああああああああああああああ！！！
 {genre3}なんて現実じゃない！！！！あ…{genre}も{genre2}もよく考えたら…
-{namespace} ち ゃ ん は 現実 じ ゃ な い？にゃあああああああああああああん！！うぁああああああああああ！！
+{namespace} {kunorchansspace} は 現実 じ ゃ な い？にゃあああああああああああああん！！うぁああああああああああ！！
 そんなぁああああああ！！いやぁぁぁあああああああああ！！はぁああああああん！！{location}ぁああああ！！
-この！ちきしょー！やめてやる！！現実なんかやめ…て…え！？見…てる？{where}の{name}ちゃんが僕を見てる？
-{where}の{name}ちゃんが僕を見てるぞ！{name}ちゃんが僕を見てるぞ！{where2}の{name}ちゃんが僕を見てるぞ！！
-{genre2}の{name}ちゃんが僕に話しかけてるぞ！！！よかった…世の中まだまだ捨てたモンじゃないんだねっ！
-いやっほぉおおおおおおお！！！僕には{name}ちゃんがいる！！やったよ{othername1}！！ひとりでできるもん！！！
+この！ちきしょー！やめてやる！！現実なんかやめ…て…え！？見…てる？{where}の{name}{kunorchan}が僕を見てる？
+{where}の{name}{kunorchan}が僕を見てるぞ！{name}{kunorchan}が僕を見てるぞ！{where2}の{name}{kunorchan}が僕を見てるぞ！！
+{genre2}の{name}{kunorchan}が僕に話しかけてるぞ！！！よかった…世の中まだまだ捨てたモンじゃないんだねっ！
+いやっほぉおおおおおおお！！！僕には{name}{kunorchan}がいる！！やったよ{othername1}！！ひとりでできるもん！！！
 あ、{genre3}の{name}ちゃああああああああああああああん！！いやぁあああああああああああああああ！！！！
 あっあんああっああんあ{othername2}ぁあ！！{othername3start}、{othername3}！！{othername4}ぁああああああ！！！{othername5}ぁあああ！！
 ううっうぅうう！！俺の想いよ{name}へ届け！！{location}の{name}へ届け！""")
