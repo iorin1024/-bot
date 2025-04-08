@@ -40,10 +40,12 @@ async def on_ready():
 
 
 @tree.command(
-    name="hello",#コマンド名
-    description="Send Hello world."#コマンドの説明
+    name="addhomework",#コマンド名
+    description="課題、日付、内容を登録してリマインドします"#コマンドの説明
 )
-@app_commands.describe(date="キャラクター名をここに入力")
+@app_commands.describe(subject="該当する教科を登録")
+@app_commands.describe(date="締切日を登録。例:2025/10/24")
+@app_commands.describe(content="課題内容を登録")
 @discord.app_commands.choices(
     subject=[
         discord.app_commands.Choice(name="英語B",value="英語B")
@@ -51,9 +53,13 @@ async def on_ready():
 )
 @discord.app_commands.guilds(GUILD_ID)
 async def add(ctx : discord.Interaction,subject:str,date:str,content:str):
-    print(subject)
-    print(date)
-    print(content)
+    subjects.append(subject)
+    dates.append(date)
+    contents.append(content)
+    print(subjects)
+    print(dates)
+    print(contents)
+
 
 TOKEN = "MTM1OTA3MjcxMjE1NjI1MDEyMw.GfUvoz.cwKjYNiq-xwCLL9Xa-q0Wxw1EOny3MHYWsdQ3I"
 
