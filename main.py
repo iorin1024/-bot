@@ -39,8 +39,11 @@ async def on_ready():
     print("Synced slash commands")
 
 
-@tree.command(name="ping", description="o")
-@app_commands.describe(name="キャラクター名をここに入力")
+@tree.command(
+    name="hello",#コマンド名
+    description="Send Hello world."#コマンドの説明
+)
+@app_commands.describe(date="キャラクター名をここに入力")
 @discord.app_commands.choices(
     subject=[
         discord.app_commands.Choice(name="英語B",value="英語B")
