@@ -39,7 +39,7 @@ async def on_ready():
     print("Synced slash commands")
 
 
-@tree.command(name="ping", description="レイテンシを計測します")
+@tree.command(name="ping", description="o")
 @app_commands.describe(name="キャラクター名をここに入力")
 @discord.app_commands.choices(
     subject=[
