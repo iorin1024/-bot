@@ -38,6 +38,7 @@ async def on_ready():
     await tree.sync(guild=discord.Object(id=GUILD_ID))
     print("Synced slash commands")
 
+
 @tree.command(name="ping", description="レイテンシを計測します")
 @app_commands.describe(name="キャラクター名をここに入力")
 @discord.app_commands.choices(
