@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 import discord
 from discord import app_commands
-from datetime import time, timezone, timedelta
+import datetime 
 from discord.ext import tasks
 import asyncio
 from keep_alive import keep_alive
@@ -11,13 +11,13 @@ from keep_alive import keep_alive
 client = discord.Client(intents=discord.Intents.all())
 tree = app_commands.CommandTree(client)
 
-JST = timezone(timedelta(hours=+9), "JST")
+JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
 
-CHANNEL_ID = 1359072420736274592
-GUILD_ID = 1241632837526884432
+CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
+GUILD_ID = int(os.getenv("GUILD_ID"))
 
 times = [
-    time(hour=8, minute=0, tzinfo=JST)
+    datetime.time(hour=6, minute=00, tzinfo=JST)
 ]
 
 subjects = []
@@ -27,8 +27,20 @@ contents = []
 @tasks.loop(time=times)
 async def loop():
     channel = client.get_channel(CHANNEL_ID)
-    await channel.send('ﾊﾁｼﾞﾊｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧﾝﾝ!!!!!!!!!!!!')
-    await channel.send(file=discord.File("8時半.mp3"))
+    dtnow = datetime.datetime.now()
+    for i, (subjectss, datess, contentss) in enumerate(zip(subjects,dates,contents)):
+        datesss = datess.split('/')
+        print(datesss)
+        b = []
+        for i in datesss:
+            b.append(int(i))
+        finishdate = datetime.datetime(b[0],b[1],b[2])
+        result = finishdate - dtnow
+        if  int(result.days) <= 3 and int(result.days) >= 0:
+            embed = discord.Embed(title="教科名",description=subjectss,color=0xff0000)
+            embed.add_field(name="締切日",value=datess)
+            embed.add_field(name="課題内容",value=contentss)
+            await channel.send(embed=embed)
     await asyncio.sleep(60)
 
 @client.event
@@ -56,12 +68,9 @@ async def add(ctx : discord.Interaction,subject:str,date:str,content:str):
     subjects.append(subject)
     dates.append(date)
     contents.append(content)
-    print(subjects)
-    print(dates)
-    print(contents)
+    await ctx.response.send_message("登録しました！")
 
-
-TOKEN = "MTM1OTA3MjcxMjE1NjI1MDEyMw.GfUvoz.cwKjYNiq-xwCLL9Xa-q0Wxw1EOny3MHYWsdQ3I"
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 keep_alive()
 try:
